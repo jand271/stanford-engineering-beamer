@@ -1,0 +1,168 @@
+
+\usepackage{sourcesanspro}
+
+\usepackage{geometry}
+\ifnum\insertaspectratio=169
+  \geometry{paperwidth=10in, paperheight=5.625in}
+\else
+	\geometry{paperwidth=10in, paperheight=7.5in}
+\fi
+
+% foot line
+\defbeamertemplate*{footline}{stanford-engineering}{}
+
+% navigation symbols
+\defbeamertemplate*{navigation symbols}{stanford-engineering}{} % navigation in sidebar left
+
+% logo
+\logo{\pgfuseimage{logo}}
+\defbeamertemplate*{sidebar right}{stanford-engineering}{
+	\vfill\llap{\insertlogo}
+}
+
+% headline
+\defbeamertemplate{headline}{stanford-engineering-title}{\begin{beamercolorbox}[wd=\paperwidth,ht=0.38in]{palette secondary}\end{beamercolorbox}}
+\defbeamertemplate*{headline}{stanford-engineering}{}
+
+% sidebar left
+\defbeamertemplate{sidebar left}{stanford-engineering-title}{}
+\defbeamertemplate*{sidebar left}{stanford-engineering}{\begin{beamercolorbox}[wd=0.38in,ht=\paperheight, sep=0.5ex, center]{palette secondary}\insertdocnavigationsymbol\\\insertframenavigationsymbol\\\insertframenumber\end{beamercolorbox}}
+\setbeamerfont{sidebar left}{size=\normalsize}
+
+% set default templates at the creation of a frame environment (necessary since stanford-engineering-title will cause the need to reset back to stanford-engineering)
+\BeforeBeginEnvironment{frame}{
+  \setbeamertemplate{headline}[stanford-engineering]
+  \setbeamertemplate{sidebar left}[stanford-engineering]
+}
+
+% title page
+
+\makeatletter
+\define@key{beamerframe}{titleframe}[true]{
+  \setbeamertemplate{headline}[stanford-engineering-title]
+  \setbeamertemplate{sidebar left}[stanford-engineering-title]
+}
+\makeatother
+
+\setbeamerfont{title}{size=\fontsize{36pt}{42pt}}
+\setbeamercolor{title}{fg=black}
+
+\setbeamerfont{subtitle}{size=\Huge}
+\setbeamercolor{subtitle}{fg=cardinalred}
+
+\setbeamerfont{author}{size=\LARGE}
+\setbeamercolor{author}{fg=black}
+
+\setbeamerfont{date}{size=\LARGE}
+\setbeamercolor{date}{fg=black}
+
+% Frames
+
+\defbeamertemplate*{frametitle}{stanford-engineering}{
+	\nointerlineskip\vspace{0.55in}\insertframetitle \\
+	\usebeamerfont{framesubtitle}\insertframesubtitle
+}
+
+\setbeamersize{text margin left=0.75in, text margin right=0.75in}
+
+\setbeamerfont{frametitle}{size=\Huge}
+\setbeamerfont{framesubtitle}{size=\Large}
+
+% Lists
+
+\setbeamertemplate{itemize items}[circle]
+
+\setbeamerfont{itemize/enumerate item}{size=\LARGE}
+\setbeamerfont{itemize/enumerate body}{size=\LARGE}
+
+\setbeamerfont{itemize/enumerate subitem}{size=\large}
+\setbeamerfont{itemize/enumerate subbody}{size=\large}
+
+\setbeamerfont{itemize/enumerate subsubitem}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\normalsize}
+
+\setbeamertemplate{enumerate subitem}{\alph{enumii}.}
+\setbeamertemplate{enumerate subsubitem}{\roman{enumiii}.}
+
+% Alerts
+
+\setbeamerfont{alerted text}{series=\bfseries}
+\setbeamercolor{alerted text}{fg=cardinalred}
+
+% Table of Contents
+
+\setbeamerfont{section in toc}{size=\Large}
+
+% Main Colors
+
+\definecolor{cardinalred}{RGB}{140, 21, 21}
+\definecolor{cardinalredlight}{HTML}{B83A4B}
+\definecolor{cardinalreddark}{HTML}{820000}
+
+\definecolor{processblack}{RGB}{46, 45, 41}
+
+\definecolor{coolgrey}{RGB}{83, 86, 90}
+
+\definecolor{text2}{RGB}{219, 215, 203}
+
+\setbeamercolor{structure}{fg=cardinalred}
+\setbeamercolor{palette primary}{fg=white, bg=black}
+\setbeamercolor{palette secondary}{fg=text2, bg=cardinalred}
+
+% Accent Colors from Stanford Identity
+
+\definecolor{paloalto}{RGB}{23, 94, 84}
+\definecolor{paloaltolight}{HTML}{2D716F}
+\definecolor{paloaltodark}{HTML}{014240}
+
+\definecolor{paloverde}{RGB}{39, 153, 137}
+\definecolor{paloverdelight}{HTML}{59B3A9}
+\definecolor{paloverdedark}{HTML}{017E7C}
+
+\definecolor{olive}{RGB}{143, 153, 62}
+\definecolor{olivelight}{HTML}{A6B168}
+\definecolor{olivedark}{HTML}{7A863B}
+
+\definecolor{bay}{RGB}{111, 162, 135}
+\definecolor{baylight}{HTML}{8AB8A7}
+\definecolor{baydark}{HTML}{417865}
+
+\definecolor{sky}{RGB}{66, 152, 181}
+\definecolor{skylight}{HTML}{67AFD2}
+\definecolor{skydark}{HTML}{016895}
+
+\definecolor{lagunita}{RGB}{0, 124, 146}
+\definecolor{lagunitalight}{HTML}{009AB4}
+\definecolor{lagunitadark}{HTML}{006B81}
+
+\definecolor{poppy}{RGB}{233, 131, 0}
+\definecolor{poppylight}{HTML}{F9A44A}
+\definecolor{poppydark}{HTML}{D1660F}
+
+\definecolor{spirited}{RGB}{224, 79, 57}
+\definecolor{spiritedlight}{HTML}{F4795B}
+\definecolor{spiriteddark}{HTML}{C74632}
+
+\definecolor{illuminating}{RGB}{254, 221, 92}
+\definecolor{illuminatinglight}{HTML}{FFE781}
+\definecolor{illuminatingdark}{HTML}{FEC51D}
+
+\definecolor{plum}{RGB}{98, 0, 89}
+\definecolor{plumlight}{HTML}{734675}
+\definecolor{plumdark}{HTML}{350D36}
+
+\definecolor{brick}{RGB}{101, 28, 50}
+\definecolor{bricklight}{HTML}{7F2D48}
+\definecolor{brickdark}{HTML}{42081B}
+
+\definecolor{archway}{RGB}{93, 75, 60}
+\definecolor{archwaylight}{HTML}{766253}
+\definecolor{archwaydark}{HTML}{2F2424}
+
+\definecolor{stone}{RGB}{127, 119, 118}
+\definecolor{stonelight}{HTML}{D4D1D1}
+\definecolor{stonedark}{HTML}{544948}
+
+\definecolor{fog}{RGB}{218, 215, 203}
+\definecolor{foglight}{HTML}{F4F4F4}
+\definecolor{fogdark}{HTML}{B6B1A9}

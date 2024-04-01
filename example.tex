@@ -1,0 +1,182 @@
+
+\documentclass[t, 12pt, aspectratio=169]{beamer}
+
+\usepackage{tikz}
+
+\usepackage{beamerthemestanford-engineering}
+
+% specify logo (if you want to switch to your department logo)
+\pgfdeclareimage[width=2.78in]{logo}{logos/ENGINEERING-large_print-eps-converted-to} % use PDF file for a vector graphic
+
+% adds table of content slide to each section
+\AtBeginSection{
+    \frame<handout:0>{\frametitle{Presentation Outline}\tableofcontents[currentsection, hideothersubsections]\vfill}
+}
+
+\title{Presentation Title}
+\subtitle{Presentation Subtitle}
+\author{Author's Name}
+\date{\today}
+
+%\includeonlyframes{current} % uncomment and ensure \begin{frame}[label=current]... to compile only one frame
+
+\begin{document}
+
+\begin{frame}[titleframe]\maketitle\end{frame}
+
+\begin{frame}\frametitle{Presentation Outline}\tableofcontents\vfill\end{frame}
+
+\section{Nested Itemize and Enumerate}
+
+    \begin{frame}
+        \frametitle{Nested Itemize and Enumerate with Columns}
+        \framesubtitle{Example SubTitle}
+        \begin{columns}
+            \begin{column}{0.5\linewidth}
+                \begin{enumerate}
+                    \item Item
+                    \begin{enumerate}
+                        \item Subitem
+                        \begin{enumerate}
+                            \item Subsubitem
+                            \item Subsubitem
+                        \end{enumerate}
+                        \item Subitem
+                    \end{enumerate}
+                    \item Item
+                    \item Item
+                \end{enumerate}
+            \end{column}
+            \begin{column}{0.5\linewidth}
+                \begin{itemize}
+                    \item Item
+                    \begin{itemize}
+                        \item Subitem
+                        \begin{itemize}
+                            \item Subsubitem
+                            \item Subsubitem
+                        \end{itemize}
+                        \item Subitem
+                        \item Subitem
+                    \end{itemize}
+                    \item Item
+                    \item Item
+                \end{itemize}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+\section{Colors}
+
+    \tikzstyle{pallet} = [draw, fill, minimum height=1cm, minimum width=3.5cm]
+
+    \subsection{Primary Colors}
+
+        \begin{frame}
+            \frametitle{Primary Colors}
+            \vfill
+            \tikz[anchor=west]{
+                \node[pallet, cardinalred] at (0,0) {\color{white} cardinalred};
+                \node[pallet, cardinalredlight] at (0,-1) {\color{white} cardinalredlight};
+                \node[pallet, cardinalreddark] at (0,-2) {\color{white} cardinalreddark};
+                \node[pallet, processblack] at (3.5, 0) {\color{white} processblack};
+                \node[pallet, coolgrey] at (7, 0) {\color{white} coolgrey};
+            }
+            \vfill
+        \end{frame}
+
+    \subsection{Accent Colors}
+
+        \begin{frame}
+            \frametitle{Accent Colors}
+            \vfill
+            \tikz[anchor=west]{
+                \node[pallet, paloalto] at (0,0) {\color{white} paloalto};
+                \node[pallet, paloaltolight] at (0,-1) {\color{white} paloaltolight};
+                \node[pallet, paloaltodark] at (0,-2) {\color{white} paloaltodark};
+
+                \node[pallet, paloverde] at (3.5,0) {\color{black} paloverde};
+                \node[pallet, paloverdelight] at (3.5,-1) {\color{black} paloverdelight};
+                \node[pallet, paloverdedark] at (3.5,-2) {\color{white} paloverdedark};
+
+                \node[pallet, olive] at (7,0) {\color{black} olive};
+                \node[pallet, olivelight] at (7,-1) {\color{black} olivelight};
+                \node[pallet, olivedark] at (7,-2) {\color{white} olivedark};
+            }
+            \tikz[anchor=west]{
+                \node[pallet, bay] at (0,0) {\color{black} bay};
+                \node[pallet, baylight] at (0,-1) {\color{black} baylight};
+                \node[pallet, baydark] at (0,-2) {\color{white} baydark};
+
+                \node[pallet, sky] at (3.5,0) {\color{black} sky};
+                \node[pallet, skylight] at (3.5,-1) {\color{black} skylight};
+                \node[pallet, skydark] at (3.5,-2) {\color{white} skydark};
+
+                \node[pallet, lagunita] at (7,0) {\color{white} lagunita};
+                \node[pallet, lagunitalight] at (7,-1) {\color{black} lagunitalight};
+                \node[pallet, lagunitadark] at (7,-2) {\color{white} lagunitadark};
+            }
+            \tikz[anchor=west]{
+                \node[pallet, poppy] at (0,0) {\color{black} poppy};
+                \node[pallet, poppylight] at (0,-1) {\color{black} poppylight};
+                \node[pallet, poppydark] at (0,-2) {\color{black} poppydark};
+
+                \node[pallet, spirited] at (3.5,0) {\color{black} spirited};
+                \node[pallet, spiritedlight] at (3.5,-1) {\color{black} spiritedlight};
+                \node[pallet, spiriteddark] at (3.5,-2) {\color{white} spiriteddark};
+
+                \node[pallet, illuminating] at (7,0) {\color{black} illuminating};
+                \node[pallet, illuminatinglight] at (7,-1) {\color{black} illuminatinglight};
+                \node[pallet, illuminatingdark] at (7,-2) {\color{black} illuminatingdark};
+            }
+            \tikz[anchor=west]{
+                \node[pallet, plum] at (0,0) {\color{white} plum};
+                \node[pallet, plumlight] at (0,-1) {\color{white} plumlight};
+                \node[pallet, plumdark] at (0,-2) {\color{white} plumdark};
+
+                \node[pallet, brick] at (3.5,0) {\color{white} brick};
+                \node[pallet, bricklight] at (3.5,-1) {\color{white} bricklight};
+                \node[pallet, brickdark] at (3.5,-2) {\color{white} brickdark};
+
+                \node[pallet, archway] at (7,0) {\color{white} archway};
+                \node[pallet, archwaylight] at (7,-1) {\color{white} archwaylight};
+                \node[pallet, archwaydark] at (7,-2) {\color{white} archwaydark};
+            }
+            \tikz[anchor=west]{
+                \node[pallet, stone] at (0,0) {\color{black} stone};
+                \node[pallet, stonelight] at (0,-1) {\color{black} stonelight};
+                \node[pallet, stonedark] at (0,-2) {\color{white} stonedark};
+
+                \node[pallet, fog] at (3.5,0) {\color{black} fog};
+                \node[pallet, foglight] at (3.5,-1) {\color{black} foglight};
+                \node[pallet, fogdark] at (3.5,-2) {\color{black} fogdark};
+            }
+            \vfill
+        \end{frame}
+
+\section{Overlays}
+
+    \begin{frame}
+        \frametitle{Accent Colors with \alert{Alert} and Overlay}
+        \begin{itemize}[<+->]
+            \item \textcolor{paloalto}{paloalto}
+            \item \textcolor{paloverde}{paloverde}
+            \item \textcolor{olive}{olive}
+            \item \textcolor{bay}{bay}
+            \item \textcolor{sky}{sky}
+            \item \textcolor{lagunita}{lagunita}
+            \item \textcolor{poppy}{poppy}
+            \item \textcolor{spirited}{spirited}
+        \end{itemize}
+    \end{frame}
+
+\section{Example Absolute Positioning with Tikz}
+
+    \begin{frame}
+        \frametitle{Example Absolute Positioning with Tikz}
+        \tikz[overlay, remember picture]{
+            \node[draw, anchor=center, font=\Huge] at ([xshift=1cm, yshift=1cm]current page.center) {Text or graphic offset from center of the page.};
+        }
+    \end{frame}
+
+\end{document}
