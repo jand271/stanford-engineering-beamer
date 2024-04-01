@@ -1,0 +1,48 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  Build:
+
+    name: Build Container and Latex Files
+    runs-on: ubuntu-latest
+    container:
+      image: docker.io/jand271/ubuntu-texlive:ja-dissertation
+
+    steps:
+    - name: Checkout files
+      uses: actions/checkout@v4
+      with:
+        submodules: true
+
+    # These commented commands build the container from the Dockerfile in each job, 
+    # rather than downloading an image from docker hub.
+    # Remove the container settings above, uncomment these lines, and comment the current 
+    # Make Tex Files step to no longer use docker hub.
+    # - name: Build Docker Container with Texlive
+    #   run: docker build -t ja-dissertation .
+    # - name: Make Tex Files
+    #   run: docker run -v .:/app --rm ja-dissertation
+
+    - name: Build Example Presentation
+      run: latexmk -pdf -quiet -interaction=nonstopmode example.tex && latexmk -c example.tex
+
+    - name: Build Example Presentation Handout
+      run: latexmk -pdf -quiet -interaction=nonstopmode -pdflatex="pdflatex %O '\PassOptionsToClass{handout}{beamer}\input{%S}'" -jobname=example_handout example.tex && latexmk -c -jobname=example_handout example.tex
+
+    - name: Grab Tex Log File
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: Tex Files
+        path: |
+          example.log
+          example.pdf
+          example_handout.log
+          example_handout.pdf
